@@ -25,6 +25,6 @@ I. upper Roman<br>
             ]
         });
 
-### Example
+### Working Example
 
-See Example/example.html
+https://rawgit.com/tylerecouture/summernote-list-styles/master/Example/example.html
