@@ -3,8 +3,15 @@ A [Summernote](http://summernote.org/) extension that allows additional formatti
 
 ### Additional styles
 
-Sets the `list-style-type` of <ul> and <ol> elements.  Options are:
-
+Sets the `list-style-type` of `<ul>` and `<ol>` elements.  Options are:
+<br>1. Numbered<br>
+a. Lower Alpha<br>
+A. Upper Alpha<br>
+i. Lower Roman<br>
+I. upper Roman<br>
+• Disc<br>
+◦ Circle<br>
+□ Square<br>
 
 ### Usage
 
