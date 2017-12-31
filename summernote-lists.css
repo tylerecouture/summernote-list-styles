@@ -1,0 +1,8 @@
+.panel-heading.note-toolbar .dropdown-toggle.list-styles {
+    width: 20px;
+    padding-left: 5px;
+}
+
+.panel-heading.note-toolbar .dropdown-list-styles {
+  padding: 5px 0 !important;
+}

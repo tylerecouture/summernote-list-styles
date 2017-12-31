@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Summernote Lists Extension Example</title>
+
+    <!-- include libraries(jQuery, bootstrap) -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+
+    <!-- include summernote css/js-->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.7/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.7/summernote.js"></script>
+
+    <script src="../summernote-lists.js"></script>
+    <link href="../summernote-lists.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div id="summernote">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+    <ol>
+        <li>Lorem ipsum</li>
+        <li>Lorem ipsum</li>
+        <li> Sublist
+          <ul>
+              <li>Lorem ipsum</li>
+              <li>Lorem ipsum</li>
+              <li>Lorem ipsum</li>
+          </ul>
+        </li>
+    </ol>
+    <ul>
+        <li> Sublist
+          <ol>
+              <li>Lorem ipsum</li>
+              <li>Lorem ipsum</li>
+              <li>Lorem ipsum</li>
+          </ol>
+        </li>
+        <li>Lorem ipsum</li>
+        <li>Lorem ipsum</li>
+    </ul>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#summernote').summernote({
+            height: 300,
+
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['para', ['ul', 'ol', 'listStyles', 'paragraph']],
+                ['misc', ['codeview']]
+            ]
+        });
+    });
+
+</script>
+
+</body>
+</html>
