@@ -18,14 +18,14 @@
       'en-US': {
         listStyleTypes: {
           tooltip: 'List Styles',
-          tooltipListStyleTypes: ['Numbered', 'Lower Alpha', 'Upper Alpha', 'Lower Roman', 'Upper Roman', 'Disc', 'Circle', 'Square']
+          labelsListStyleTypes: ['Numbered', 'Lower Alpha', 'Upper Alpha', 'Lower Roman', 'Upper Roman', 'Disc', 'Circle', 'Square']
         }
       }
     });
     $.extend($.summernote.options, {
       listStyleTypes: {
         /* Must keep the same order as in lang.imageAttributes.tooltipShapeOptions */
-        styles: ['decimal','lower-alpha','lower-roman','upper-alpha','upper-roman', 'disc', 'circle', 'square']
+        styles: ['decimal','lower-alpha','upper-alpha','lower-roman','upper-roman', 'disc', 'circle', 'square']
       }
     });
 
@@ -38,12 +38,15 @@
             var options = context.options;
             var lang = options.langInfo;
             var listStyleTypes = options.listStyleTypes.styles;
+            var listStyleLabels = lang.listStyleTypes.labelsListStyleTypes
 
             var list = ''
+            var index = 0;
             for (const listStyleType of listStyleTypes) {
-                list += '<li><a class="checked" href="#" data-value=' + listStyleType + '>'
+                list += '<li><a href="#" data-value=' + listStyleType + '>'
                 list += '<ol><li style="list-style-type: ' + listStyleType + ';">'
-                list += listStyleType + '</li></ol></a></li>'
+                list += listStyleLabels[index] + '</li></ol></a></li>'
+                index++;
             }
 
             context.memo('button.listStyles', function () {
