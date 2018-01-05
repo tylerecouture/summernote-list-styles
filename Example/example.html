@@ -50,12 +50,25 @@
     $(document).ready(function() {
         $('#summernote').summernote({
             height: 300,
-
             toolbar: [
                 ['style', ['bold', 'italic', 'underline', 'clear']],
                 ['para', ['ul', 'ol', 'listStyles', 'paragraph']],
                 ['misc', ['codeview']]
-            ]
+            ],
+
+            listStyleTypes: {
+                styles: [
+                  "decimal",
+                  "decimal",
+                  "upper-alpha",
+                  "lower-roman",
+                  "upper-roman",
+                  "disc",
+                  "circle",
+                  "square"
+                ]
+            }
+
         });
     });
 
