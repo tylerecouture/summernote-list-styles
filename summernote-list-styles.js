@@ -60,6 +60,7 @@
       var index = 0;
       for (const listStyleType of listStyleTypes) {
         list += '<li><a href="#" data-value=' + listStyleType + ">";
+        list += '<i class="note-icon-menu-check pull-left"></i>';
         list += '<ol><li style="list-style-type: ' + listStyleType + ';">';
         list += listStyleLabels[index] + "</li></ol></a></li>";
         index++;
@@ -74,36 +75,66 @@
               tooltip: lang.listStyleTypes.tooltip,
               data: {
                 toggle: "dropdown"
+              },
+              callback: function ($dropdownBtn) {
+                $dropdownBtn.click(function () {
+                  self.updateListStyleMenuState($dropdownBtn);
+                })
               }
             }),
-            ui.dropdown({
+            ui.dropdownCheck({
               className: "dropdown-list-styles",
+              checkClassName: options.icons.menuCheck,
               contents: list,
               callback: function($dropdown) {
                 $dropdown.find("a").each(function() {
                   $(this).click(function() {
-                    self.updateStyleType(
-                      $(this)
-                        .find("li")
-                        .css("list-style-type")
-                    );
+                    self.updateStyleType( $(this).data("value") )
                   });
                 });
-              }
-            })
+              } // callback
+            }),
           ])
           .render();
-      });
+      })
+
+      /* Makes sure the check marks are on the currently applied styles */
+      self.updateListStyleMenuState = function($dropdownButton) {
+        var $selectedtList = self.getParentList();
+        var selectedListStyleType = $selectedtList.css('list-style-type')
+        console.log(selectedListStyleType);
+        //console.log($parentList.attr('list-style-type'));
+        var $listItems = $dropdownButton.next().find("a");
+        var styleFound = false;
+        $listItems.each(function() {
+          var itemListStyleType = $(this).data("value");
+          if (selectedListStyleType == itemListStyleType) {
+            $(this).addClass("checked");
+            styleFound = true;
+          } else {
+            $(this).removeClass("checked");
+          }
+          if( !styleFound ) { // check the default style
+            $listItems.filter('[data-value=""]').addClass("checked");
+          }
+        });
+      }
 
       self.updateStyleType = function(style) {
+        context.invoke("beforeCommand");
+        self.getParentList().css("list-style-type", style);
+        context.invoke("afterCommand");
+      }
+
+      self.getParentList = function () {
         if (window.getSelection) {
           var $focusNode = $(window.getSelection().focusNode);
-          var $parentList = $focusNode.closest(
-            "div.note-editable ol, div.note-editable ul"
-          );
-          $parentList.css("list-style-type", style);
+          var $parentList = $focusNode.closest("div.note-editable ol, div.note-editable ul");
+          return $parentList;
         }
-      };
+        return null;
+      }
+
     }
   });
 });
