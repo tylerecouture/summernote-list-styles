@@ -28,4 +28,5 @@ I. upper Roman<br>
 ### Working Examples
 
 * bootstrap3: https://rawgit.com/tylerecouture/summernote-list-styles/master/Example/example.html
-* bootstrap4: https://rawgit.com/tylerecouture/summernote-list-styles/master/Example/example-bs4.html
+* bootstrap4: see `Example/example-bs4.html`
+
