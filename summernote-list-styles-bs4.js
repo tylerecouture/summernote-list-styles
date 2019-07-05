@@ -1,6 +1,6 @@
 /* https://github.com/tylerecouture/summernote-lists  */
 
-(function(factory) {
+(function(factory) {https://github.com/qwe0001/summernote-list-styles
   /* global define */
   if (typeof define === "function" && define.amd) {
     // AMD. Register as an anonymous module.
@@ -57,13 +57,12 @@
       var listStyleLabels = lang.listStyleTypes.labelsListStyleTypes;
 
       var list = "";
-      var index = 0;
-      for (const listStyleType of listStyleTypes) {
-        list += '<li><div class="list-style-item" data-value=' + listStyleType + ">";
+
+      for (var i = 0; i < listStyleTypes.length; i++) {
+        list += '<li><div class="list-style-item" data-value=' + listStyleTypes[i] + ">";
         list += '<i class="note-icon-menu-check float-left"></i>';
-        list += '<ol><li style="list-style-type: ' + listStyleType + ';">';
-        list += listStyleLabels[index] + "</li></ol></div></li>";
-        index++;
+        list += '<ol><li style="list-style-type: ' + listStyleTypes[i] + ';">';
+        list += listStyleLabels[i] + "</li></ol></div></li>";
       }
 
       context.memo("button.listStyles", function() {
