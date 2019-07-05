@@ -1,6 +1,6 @@
 /* https://github.com/tylerecouture/summernote-lists  */
 
-(function(factory) {https://github.com/qwe0001/summernote-list-styles
+(function(factory) {
   /* global define */
   if (typeof define === "function" && define.amd) {
     // AMD. Register as an anonymous module.
