@@ -57,13 +57,12 @@
       var listStyleLabels = lang.listStyleTypes.labelsListStyleTypes;
 
       var list = "";
-      var index = 0;
-      for (const listStyleType of listStyleTypes) {
-        list += '<li><a href="#" data-value=' + listStyleType + ">";
+
+      for (var i = 0; i < listStyleTypes.length; i++) {
+        list += '<li><a href="#" data-value=' + listStyleTypes[i] + ">";
         list += '<i class="note-icon-menu-check pull-left"></i>';
-        list += '<ol><li style="list-style-type: ' + listStyleType + ';">';
-        list += listStyleLabels[index] + "</li></ol></a></li>";
-        index++;
+        list += '<ol><li style="list-style-type: ' + listStyleTypes[i] + ';">';
+        list += listStyleLabels[i] + "</li></ol></a></li>";
       }
 
       context.memo("button.listStyles", function() {
