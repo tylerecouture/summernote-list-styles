@@ -77,7 +77,7 @@
               },
               callback: function ($dropdownBtn) {
                 $dropdownBtn.click(function (e) {
-                   e.preventDefault();
+                  e.preventDefault();
                   self.updateListStyleMenuState($dropdownBtn);
                 })
               }
