@@ -76,7 +76,8 @@
                 toggle: "dropdown"
               },
               callback: function ($dropdownBtn) {
-                $dropdownBtn.click(function () {
+                $dropdownBtn.click(function (e) {
+                  e.preventDefault();
                   self.updateListStyleMenuState($dropdownBtn);
                 })
               }
@@ -87,7 +88,8 @@
               contents: list,
               callback: function($dropdown) {
                 $dropdown.find("div").each(function() {
-                  $(this).click(function() {
+                  $(this).click(function(e) {
+                    e.preventDefault();
                     self.updateStyleType( $(this).data("value") )
                   });
                 });
